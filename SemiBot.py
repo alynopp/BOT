@@ -1,72 +1,53 @@
-# note turn on legitMine in Baritone.
-# https://github.com/cabaletta/baritone/blob/1.19.4/USAGE.md
-# 1.20.1 fabric Local-Lan/Server
-import time # time.sleep(5)
-import random # not used yet.
-#make sure the code runs when the bot is in the server so it does not run in the menu.
-#print and sendchat are different print is fir consol and debuging sendchat is to controll the bot via Baritone.
-# #goto is simple movenmeny, #goal is with path tracing and mining and building to get to goal you can change type if its needed in a place.
+import time # time.sleep(0)
+import random
 
-# for Baritone basically does everything.
-def sendchat(message):
-  print("sending chat command")
-
-# small test
-time.sleep(0) # make 0 --> 5
-sendchat("#click")
-
-#### for python cus i get error cus ingame_xcoordinate does not exist yet:
-ingame_xcoordinate =1
-ingame_ycoordinate =2
-ingame_zcoordinate =3
-#### i dont need this its just to avoid errors in python. (ingame_zcoordinate =3)
-
-
-
-
-# location and stuff 
-#make the xyz auto update
-xpos = ingame_xcoordinate
-ypos = ingame_ycoordinate
-zpos = ingame_zcoordinate
-
-spawnx = xpos
-spawny = ypos
-spawnz = zpos
-
-# small debug for test:
-print("#goto",spawnx,spawny,spawnz) #make sure that everything always sends without other imperfections like this sends ('#goto', 1, 2, 3) but i need #goto 1 2 3
-
-def goto(x,y,z):
+print("started.")
+def sendchat(command):
+  print("command sent:")
+  print(command)
   print(" ")
-  print("going to: ")
-  print(x,y,z)
-  #make this sent chat with Baritone to use #goto x y z   command.
 
-#small test.
-goto(spawnx,spawny,spawnz+5)
+#### saved locations:
+spawnx = 0
+spawny = 0
+spawnz = 0
+homex = 0
+homey = 0
+homez = 0
+####################.
+#### Bot inventory:
+log = 0
+###################
+# java & fabric stuff: (some stuff can also be one server join dont limit your self to anything.)
+ingame_coordinates = "?, make this update in a loop, the xyz of the bot(real time of idk just make it update. and you can add new veriables for eatch x/y/z this is just for demo.)"
+xpos = ingame_coordinates
+ypox = ingame_coordinates
+zpos = ingame_coordinates
+####################.
 
-time.sleep(3)
-print(" ")
-
-def ingame_inventory(item):
-  print("inv")
-
-#only oak for now.
+# on server/lan join:
 sendchat("#mine oak_log")
-#make this have a java wait until bot was 6 logs in inv / ingame_inventory then send a #stop
+while True:
+  if log < 5:
+    sendchat("#mine oak_log")
+    time.sleep(5)
+    log = log +3
+    print(log)
+  elif log > 4:
+    break
+#
 
-# this is a small test vertion and a small practice not full vertion
+#test:
+print("loop broken")
+print(" ")
+sendchat("got wood") #normal chat say not command sould work.
+#
 
 
 
+# #goal command in Baritone.
+def goal(x,y,z):
+  print("new location goal:")
+  print(x,y,z)
 
-
-
-
-
-
-
-
-
-
+goal(1,2,3)
