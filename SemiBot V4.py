@@ -67,4 +67,4 @@ if rng == 3: # does something fun or outstanding
     print(" ")
 
 
-# this is a demo verstion of this bot, also fix some things, i did not add wait_untill in a few places i think idk.
+# this is a demo verstion of this bot, also fix some things, i did not add wait_untill in a few places i think idk, and make sure code only works when in server/lan server not on menu screen.
